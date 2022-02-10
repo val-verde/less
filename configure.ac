@@ -638,7 +638,11 @@ AH_TOP([
 /*
  * Define MSDOS_COMPILER if compiling under Microsoft C.
  */
+#if __has_include(<windows.h>)
+#define MSDOS_COMPILER  WIN32C
+#else
 #define	MSDOS_COMPILER	0
+#endif
 
 /*
  * Pathname separator character.
